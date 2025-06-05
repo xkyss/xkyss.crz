@@ -50,3 +50,4 @@ playc/hv/hv-client/libhv.*.log
 xkyss-core/int
 xkyss-core/out
 xkyss-core/.zig-cache
+playz/**/.zig-cache
