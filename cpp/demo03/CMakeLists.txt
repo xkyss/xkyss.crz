@@ -6,4 +6,5 @@ set(CMAKE_CXX_STANDARD 11)
 include_directories(include)
 
 add_executable(demo03 main.cpp
-    src/Paper.cpp)
+    src/Paper.cpp
+    src/demo03.cpp)
