@@ -26,6 +26,8 @@ pub fn build(b: *std.Build) void {
         .root_source_file = b.path("sourcez/root.zig"),
         .target = target,
         .optimize = optimize,
+        .stack_check = false,
+        .stack_protector = false,
     });
 
     // We will also create a module for our other entry point, 'main.zig'.
@@ -52,6 +54,7 @@ pub fn build(b: *std.Build) void {
         .name = "demo04",
         .root_module = lib_mod,
     });
+    //lib.linkLibC();
 
     // This declares intent for the library to be installed into the standard
     // location when the user invokes the "install" step (the default step when
@@ -113,4 +116,11 @@ pub fn build(b: *std.Build) void {
     const test_step = b.step("test", "Run unit tests");
     test_step.dependOn(&run_lib_unit_tests.step);
     test_step.dependOn(&run_exe_unit_tests.step);
+
+    const test_artifact = b.addInstallArtifact(
+        exe_unit_tests,
+        .{ .dest_dir = .{ .override = .{ .custom = "bin" } } },
+    );
+    const install_test_step = b.step("install_test", "Create test binaries for debugging");
+    install_test_step.dependOn(&test_artifact.step);
 }

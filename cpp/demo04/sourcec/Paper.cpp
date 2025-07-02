@@ -2,7 +2,7 @@
 // Created by dev88 on 2025/6/30.
 //
 
-#include "../include/Paper.h"
+#include "Paper.h"
 
 #include <iostream>
 

@@ -29,6 +29,7 @@ extern "C" {
 #  endif
 #endif
 
+
     // ---------------
     // Version
 #define DEMO04_VERSION_MAJOR 1
@@ -37,6 +38,7 @@ extern "C" {
 
 
     DEMO04_API unsigned int demo04_get_version();
+    DEMO04_API int add(int a, int b);
 
 
     // ---------------

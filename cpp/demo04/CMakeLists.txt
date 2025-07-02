@@ -22,6 +22,16 @@ set(CFG_DIR ${CMAKE_BINARY_DIR}/local/cmake CACHE PATH "demo04 config")
 set(CMAKE_CONFIG_INSTALL_DIR ${CMAKE_INSTALL_LIBDIR}/${PROJECT_NAME})
 set(CMAKE_CONFIG_INSTALL_FILE ${PROJECT_BINARY_DIR}/config.toinstall.cmake)
 
+if (WIN32)
+  set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS}   /MP /wd4200")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /MP /wd4200")
+else ()
+  set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS}   -Wall -fPIC -pipe -std=gnu90")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -fPIC -pipe -std=c++11 -Wno-invalid-offsetof")
+  if (APPLE)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated-declarations")
+  endif()
+endif ()
 
 ##-----------------
 ## install

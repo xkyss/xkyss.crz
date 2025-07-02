@@ -5,6 +5,19 @@ project(demo04_exe
 )
 message(STATUS "PROJECT_NAME is ${PROJECT_NAME}")
 
+
+message("CMAKE_C_FLAGS is ${CMAKE_C_FLAGS}")
+message("CMAKE_C_FLAGS_DEBUG is ${CMAKE_C_FLAGS_DEBUG}")
+message("CMAKE_C_FLAGS_RELEASE is ${CMAKE_C_FLAGS_RELEASE}")
+message("CMAKE_C_FLAGS_RELWITHDEBINFO is ${CMAKE_C_FLAGS_RELWITHDEBINFO}")
+message("CMAKE_C_FLAGS_MINSIZEREL is ${CMAKE_C_FLAGS_MINSIZEREL}")
+
+message("CMAKE_CXX_FLAGS is ${CMAKE_CXX_FLAGS}")
+message("CMAKE_CXX_FLAGS_DEBUG is ${CMAKE_CXX_FLAGS_DEBUG}")
+message("CMAKE_CXX_FLAGS_RELEASE is ${CMAKE_CXX_FLAGS_RELEASE}")
+message("CMAKE_CXX_FLAGS_RELWITHDEBINFO is ${CMAKE_CXX_FLAGS_RELWITHDEBINFO}")
+message("CMAKE_CXX_FLAGS_MINSIZEREL is ${CMAKE_CXX_FLAGS_MINSIZEREL}")
+
 ##-----------------
 ## option
 
@@ -38,4 +51,10 @@ target_include_directories(${PROJECT_NAME} PUBLIC
     $<INSTALL_INTERFACE:include>
 )
 # 链接库
-target_link_libraries(${PROJECT_NAME} PRIVATE demo04)
+#target_link_libraries(${PROJECT_NAME} PRIVATE demo04)
+target_link_libraries(${PROJECT_NAME}
+    ntdll
+    #ucrt vcruntime
+    #D:/Code/xkyss/xkyss.crz/cpp/demo04/demo04.lib
+    D:/Code/xkyss/xkyss.crz/cpp/demo04/.zig/out/lib/demo04.lib
+)

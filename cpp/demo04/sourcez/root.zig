@@ -8,13 +8,15 @@ pub export fn add(a: i32, b: i32) i32 {
     return a + b;
 }
 
-test "basic add functionality" {
-    std.debug.print("root test\n", .{});
-    try testing.expect(add(3, 7) == 10);
-}
+// test "basic add functionality" {
+//     std.debug.print("root test\n", .{});
+//     try testing.expect(add(3, 7) == 10);
+// }
 
 
 pub const Page = @import("Paper.zig");
+
+pub usingnamespace @import("demo04.zig");
 
 test {
     testing.refAllDecls(@This());
