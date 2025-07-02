@@ -24,7 +24,7 @@ namespace demo04 {
     }
 
     int Paper::foo02() const {
-        std::cout << m << std::endl;
+        std::cout << m + 2 << std::endl;
         return m + 2;
     }
 }

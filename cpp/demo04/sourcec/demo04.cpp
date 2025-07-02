@@ -17,15 +17,15 @@ DEMO04_API unsigned int demo04_get_version(void)
     return DEMO04_VERSION;
 }
 
-demo04_paper_t * demo04_paper_new(void) {
+DEMO04_API demo04_paper_t * demo04_paper_new(void) {
     return AS_TYPE(demo04_paper_t, new demo04::Paper());
 }
 
-demo04_paper_t * demo04_paper_new_with_int(int i) {
+DEMO04_API demo04_paper_t * demo04_paper_new_with_int(int i) {
     return AS_TYPE(demo04_paper_t, new demo04::Paper(i));
 }
 
-void demo04_paper_delete(demo04_paper_t *paper) {
+DEMO04_API void demo04_paper_delete(demo04_paper_t *paper) {
     if (!paper) {
         return;
     }
@@ -33,12 +33,12 @@ void demo04_paper_delete(demo04_paper_t *paper) {
     delete AS_TYPE(demo04::Paper, paper);
 }
 
-void demo04_paper_foo01(demo04_paper_t *paper) {
+DEMO04_API void demo04_paper_foo01(demo04_paper_t *paper) {
     const auto self = AS_TYPE(demo04::Paper, paper);
     self->foo01();
 }
 
-int demo04_paper_foo02(demo04_paper_t *paper) {
+DEMO04_API int demo04_paper_foo02(demo04_paper_t *paper) {
     const auto self = AS_TYPE(demo04::Paper, paper);
     return self->foo02();
 }

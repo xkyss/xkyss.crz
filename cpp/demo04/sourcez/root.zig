@@ -14,7 +14,7 @@ test "basic add functionality" {
 }
 
 
-pub const Page = @import("Page.zig");
+pub const Page = @import("Paper.zig");
 
 test {
     testing.refAllDecls(@This());

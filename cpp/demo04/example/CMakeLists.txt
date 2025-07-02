@@ -23,10 +23,19 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY ${BIN_DIR}
 )
 
-if (BUILD_INDEPENDENT)
+# 预定义宏
+target_compile_definitions(${PROJECT_NAME} PRIVATE -DDEMO04_BUILD_STATIC)
+
+if (DEMO04_EXAMPLE_BUILD_INDEPENDENT)
   set(DEMO04_DIR ${CFG_DIR})
   #message("DEMO04_DIR is ${DEMO04_DIR}")
   find_package(demo04 REQUIRED CONFIG HINTS ${DEMO04_DIR})
 endif ()
 
+# 头文件目录
+target_include_directories(${PROJECT_NAME} PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>
+)
+# 链接库
 target_link_libraries(${PROJECT_NAME} PRIVATE demo04)
