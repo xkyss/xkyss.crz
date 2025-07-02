@@ -51,3 +51,5 @@ xkyss-core/int
 xkyss-core/out
 xkyss-core/.zig-cache
 playz/**/.zig-cache
+**/.zig
+**/.zig-cache
