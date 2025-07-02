@@ -9,5 +9,13 @@ pub export fn add(a: i32, b: i32) i32 {
 }
 
 test "basic add functionality" {
+    std.debug.print("root test\n", .{});
     try testing.expect(add(3, 7) == 10);
+}
+
+
+pub const Page = @import("Page.zig");
+
+test {
+    testing.refAllDecls(@This());
 }
